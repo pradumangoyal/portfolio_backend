@@ -1,0 +1,1 @@
+captcha_secret_key = '<YOUR SECRET KEY>>'
