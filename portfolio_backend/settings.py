@@ -25,7 +25,7 @@ SECRET_KEY = 'n@j474e^v+#s6ty7a^vu$!vb=x%*dub!dfxp++!)0((c6!n(l9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'contact.apps.ContactConfig'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -101,6 +104,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_METHODS = (
+#     'DELETE',
+#     'GET',
+#     'OPTIONS',
+#     'PATCH',
+#     'POST',
+#     'PUT',
+# )
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000/',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
